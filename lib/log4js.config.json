@@ -1,0 +1,11 @@
+{
+  "appenders": [
+    {
+      "type": "console",
+      "layout": {
+        "type": "pattern",
+        "pattern": "%[%4p%] [%r] - %m%n"
+      }
+    }
+  ]
+}

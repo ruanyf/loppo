@@ -1,0 +1,65 @@
+{
+  "name": "loppo",
+  "version": "1.0.0",
+  "description": "a handy static document generator",
+  "main": "index.js",
+  "scripts": {
+    "lint": "eslint './**/*.@(js|jsx)'",
+    "lint:msg": "validate-commit-msg",
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "commit": "git cz",
+    "changelog": "conventional-changelog -p angular -i CHANGELOG.md -s -r 1"
+  },
+  "bin": {
+    "loppo": "./bin/cmd.js"
+  },
+  "keywords": [
+    "static",
+    "document"
+  ],
+  "author": "Ruan Yifeng",
+  "license": "GPL v3",
+  "dependencies": {
+    "debug": "^2.2.0",
+    "js-yaml": "^3.6.1",
+    "log-symbols": "^1.0.2",
+    "log4js": "^0.6.37",
+    "yargs": "latest"
+  },
+  "devDependencies": {
+    "commitizen": "latest",
+    "conventional-changelog-cli": "latest",
+    "cz-conventional-changelog": "latest",
+    "eslint": "^2.13.1",
+    "eslint-config-airbnb": "^9.0.1",
+    "eslint-plugin-import": "^1.9.2",
+    "eslint-plugin-jsx-a11y": "^1.5.3",
+    "eslint-plugin-react": "^5.2.2",
+    "ghooks": "latest",
+    "validate-commit-msg": "latest"
+  },
+  "config": {
+    "ghooks": {
+      "pre-commit": "npm run lint",
+      "commit-msg": "npm run lint:msg"
+    },
+    "validate-commit-msg": {
+      "types": [
+        "feat",
+        "fix",
+        "docs",
+        "style",
+        "refactor",
+        "perf",
+        "test",
+        "chore",
+        "revert"
+      ],
+      "warnOnFail": false,
+      "maxSubjectLength": 100
+    },
+    "commitizen": {
+      "path": "node_modules/cz-conventional-changelog"
+    }
+  }
+}
