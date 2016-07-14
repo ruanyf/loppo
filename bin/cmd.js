@@ -4,16 +4,16 @@
 const path = require('path');
 
 const argv = require('yargs')
-  .usage('Usage: $0 -w [num] -h [num]')
+  .usage('Usage: loppo [Options]')
   .option('dir', {
     alias: 'd',
-    default: './docs',
+    default: 'docs',
     describe: 'document directory',
     type: 'string'
   })
   .option('output', {
     alias: 'o',
-    default: './dist',
+    default: 'dist',
     describe: 'output directory',
     type: 'string'
   })
