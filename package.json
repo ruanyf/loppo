@@ -21,6 +21,7 @@
   "license": "GPL v3",
   "dependencies": {
     "debug": "^2.2.0",
+    "fs-extra": "^0.30.0",
     "js-yaml": "^3.6.1",
     "log-symbols": "^1.0.2",
     "log4js": "^0.6.37",
