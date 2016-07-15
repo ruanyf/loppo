@@ -25,19 +25,19 @@
     "js-yaml": "^3.6.1",
     "log-symbols": "^1.0.2",
     "log4js": "^0.6.37",
-    "yargs": "latest"
+    "yargs": "^4.8.0"
   },
   "devDependencies": {
-    "commitizen": "latest",
+    "commitizen": "^2.8.2",
     "conventional-changelog-cli": "latest",
-    "cz-conventional-changelog": "latest",
-    "eslint": "^2.13.1",
-    "eslint-config-airbnb": "^9.0.1",
-    "eslint-plugin-import": "^1.9.2",
-    "eslint-plugin-jsx-a11y": "^1.5.3",
+    "cz-conventional-changelog": "^1.1.6",
+    "eslint": "2.x",
+    "eslint-config-airbnb": "9.x",
+    "eslint-plugin-import": "1.x",
+    "eslint-plugin-jsx-a11y": "1.x",
     "eslint-plugin-react": "^5.2.2",
-    "ghooks": "latest",
-    "validate-commit-msg": "latest"
+    "ghooks": "^1.3.2",
+    "validate-commit-msg": "^2.6.1"
   },
   "config": {
     "ghooks": {

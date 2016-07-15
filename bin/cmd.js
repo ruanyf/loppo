@@ -1,5 +1,4 @@
 #!/usr/bin/env node
-'use strict';
 
 const path = require('path');
 
@@ -37,13 +36,13 @@ const argv = require('yargs')
   .argv;
 
 if (argv.version) {
-  let pkg = require(path.join(__dirname, '../package.json'));
+  const pkg = require(path.join(__dirname, '../package.json'));
   console.log(pkg.version);
   process.exit(0);
 }
 
 if (argv.debug) {
-  process.env['DEBUG'] = '*';
+  process.env.DEBUG = '*';
 }
 
 require('../lib')(argv);

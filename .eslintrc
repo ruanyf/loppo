@@ -13,8 +13,12 @@
   "rules": {
     "comma-dangle": 0,
     "no-unused-expressions": 0,
+    "prefer-template": 0,
     "no-console": 0,
+    "camelcase": 0,
     "id-length": 0,
-    "react/prop-types": 0
+    "global-require": 0,
+    "react/prop-types": 0,
+    "strict": 0
   }
 }
