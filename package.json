@@ -6,7 +6,7 @@
   "scripts": {
     "lint": "eslint './**/*.@(js|jsx)'",
     "lint:msg": "validate-commit-msg",
-    "test": "echo \"Error: no test specified\" && exit 1",
+    "test": "node test/*.test.js | tap-spec",
     "commit": "git cz",
     "changelog": "conventional-changelog -p angular -i CHANGELOG.md -s -r 1"
   },
@@ -18,7 +18,7 @@
     "document"
   ],
   "author": "Ruan Yifeng",
-  "license": "GPL v3",
+  "license": "GPL-3.0",
   "dependencies": {
     "debug": "^2.2.0",
     "fs-extra": "^0.30.0",
@@ -37,6 +37,8 @@
     "eslint-plugin-jsx-a11y": "1.x",
     "eslint-plugin-react": "^5.2.2",
     "ghooks": "^1.3.2",
+    "tap-spec": "^4.1.1",
+    "tape": "^4.6.0",
     "validate-commit-msg": "^2.6.1"
   },
   "config": {
@@ -62,5 +64,6 @@
     "commitizen": {
       "path": "node_modules/cz-conventional-changelog"
     }
-  }
+  },
+  "repository": {}
 }

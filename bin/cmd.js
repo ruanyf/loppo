@@ -32,7 +32,7 @@ const argv = require('yargs')
     type: 'boolean'
   })
   .help('help')
-  .epilog('copyright 2016')
+  .example('loppo --dir docs --output dist')
   .argv;
 
 if (argv.version) {
