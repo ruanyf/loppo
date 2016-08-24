@@ -6,7 +6,7 @@
   "scripts": {
     "lint": "eslint './**/*.@(js|jsx)'",
     "lint:msg": "validate-commit-msg",
-    "test": "node test/*.test.js | tap-spec",
+    "test": "tape test/*.test.js | tap-spec",
     "commit": "git cz",
     "changelog": "conventional-changelog -p angular -i CHANGELOG.md -s -r 1"
   },

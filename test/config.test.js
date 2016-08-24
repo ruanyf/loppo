@@ -9,7 +9,10 @@ const config = require('../lib/config');
 const log = require('../lib/utils').log;
 log.setLevel('error');
 
+const test_title = '[config.js] ';
+
 test(
+  test_title +
   'if no command line options and no existing config file, lib/config output should be the default',
   function (t) {
     const TEST_PATH = path.resolve(__dirname, './fixture/config/no-options-no-default');
@@ -25,6 +28,7 @@ test(
 );
 
 test(
+  test_title +
   'if no command line options and an existing config file,'
   + ' lib/config output should be the existing config',
   function (t) {
@@ -38,6 +42,7 @@ test(
 );
 
 test(
+  test_title +
   'if command line options and no existing config file, '
   + 'lib/config output should be the command line options',
   function (t) {
@@ -56,6 +61,7 @@ test(
 );
 
 test(
+  test_title +
   'if command line options and an existing config file, '
   + 'lib/config output should be the command line options, '
   + 'and the config file should be the same',
