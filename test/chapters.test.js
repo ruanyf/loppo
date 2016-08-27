@@ -62,10 +62,13 @@ test(
   function (t) {
     const TEST_PATH = path.resolve(__dirname, './fixture/chapters/generating-chapters-file-filter');
     process.chdir(TEST_PATH);
-    t.throws(function () {
-      chapters({ dir: 'docs' });
-    });
+    chapters({ dir: 'docs' });
+    t.ok(fs.existsSync(path.join(TEST_PATH, CHAPTERS_FILE)));
+    const content = yaml.load(fs.readFileSync(path.join(TEST_PATH, CHAPTERS_FILE), 'utf8'));
+    t.equal(typeof content, 'object');
+    t.equal(content.length, 0);
     t.end();
+    fs.unlinkSync(path.join(TEST_PATH, CHAPTERS_FILE));
   }
 );
 
@@ -78,9 +81,8 @@ test(
       './fixture/chapters/empty-chapters-file'
     );
     process.chdir(TEST_PATH);
-    t.throws(function () {
-      chapters({ dir: 'docs' });
-    });
+    const result = chapters({ dir: 'docs' });
+    t.equal(result.chapters, undefined);
     t.end();
   }
 );
