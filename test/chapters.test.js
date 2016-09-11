@@ -76,6 +76,24 @@ test(
 
 test(
   test_title +
+  'exclude double empty directory',
+  function (t) {
+    const TEST_PATH = path.resolve(__dirname, './fixture/chapters/exclude-double-empty-directory');
+    process.chdir(TEST_PATH);
+    const result = chapters({ dir: 'docs' });
+    t.equal(result.chapters[0]['a.md'], 'A');
+    t.equal(result.chapters.length, 1);
+    t.ok(fs.existsSync(path.join(TEST_PATH, CHAPTERS_FILE)));
+    const content = yaml.load(fs.readFileSync(path.join(TEST_PATH, CHAPTERS_FILE), 'utf8'));
+    t.equal(content[0]['a.md'], 'A');
+    t.equal(content.length, 1);
+    t.end();
+    fs.unlinkSync(path.join(TEST_PATH, CHAPTERS_FILE));
+  }
+);
+
+test(
+  test_title +
   'exclude complex empty directory',
   function (t) {
     const TEST_PATH = path.resolve(__dirname, './fixture/chapters/exclude-complex-empty-directory');
