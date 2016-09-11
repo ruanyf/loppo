@@ -3,3 +3,9 @@ dir: docs
 
 # output directory of generated documents
 output: dist
+
+# site theme
+theme: oceandeep
+
+# site name
+site: Documents

@@ -16,6 +16,12 @@ const argv = require('yargs')
     describe: 'output directory',
     type: 'string'
   })
+  .option('output', {
+    alias: 's',
+    default: 'site',
+    describe: 'site name',
+    type: 'string'
+  })
   .option('debug', {
     default: false,
     describe: 'debug mode',

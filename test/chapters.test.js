@@ -58,6 +58,48 @@ test(
 
 test(
   test_title +
+  'exclude empty directory',
+  function (t) {
+    const TEST_PATH = path.resolve(__dirname, './fixture/chapters/exclude-empty-directory');
+    process.chdir(TEST_PATH);
+    const result = chapters({ dir: 'docs' });
+    t.equal(result.chapters[0]['a.md'], 'A');
+    t.equal(result.chapters.length, 1);
+    t.ok(fs.existsSync(path.join(TEST_PATH, CHAPTERS_FILE)));
+    const content = yaml.load(fs.readFileSync(path.join(TEST_PATH, CHAPTERS_FILE), 'utf8'));
+    t.equal(content[0]['a.md'], 'A');
+    t.equal(content.length, 1);
+    t.end();
+    fs.unlinkSync(path.join(TEST_PATH, CHAPTERS_FILE));
+  }
+);
+
+test(
+  test_title +
+  'exclude complex empty directory',
+  function (t) {
+    const TEST_PATH = path.resolve(__dirname, './fixture/chapters/exclude-complex-empty-directory');
+    process.chdir(TEST_PATH);
+    const result = chapters({ dir: 'docs' });
+    t.equal(result.chapters[0]['a.md'], 'A');
+    t.equal(result.chapters[1]['images/'], 'images');
+    t.equal(result.chapters[2]['images/dir3/'], 'dir3');
+    t.equal(result.chapters[3]['images/dir3/b.md'], 'B');
+    t.equal(result.chapters.length, 4);
+    t.ok(fs.existsSync(path.join(TEST_PATH, CHAPTERS_FILE)));
+    const content = yaml.load(fs.readFileSync(path.join(TEST_PATH, CHAPTERS_FILE), 'utf8'));
+    t.equal(content[0]['a.md'], 'A');
+    t.equal(content[1]['images/'], 'images');
+    t.equal(content[2]['images/dir3/'], 'dir3');
+    t.equal(content[3]['images/dir3/b.md'], 'B');
+    t.equal(content.length, 4);
+    t.end();
+    fs.unlinkSync(path.join(TEST_PATH, CHAPTERS_FILE));
+  }
+);
+
+test(
+  test_title +
   'generating chapters.yml filter',
   function (t) {
     const TEST_PATH = path.resolve(__dirname, './fixture/chapters/generating-chapters-file-filter');
