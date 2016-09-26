@@ -3,7 +3,7 @@
 const path = require('path');
 const test = require('tape');
 const theme = require('../lib/theme');
-const walkSync = require('walk-sync');
+// const walkSync = require('walk-sync');
 
 const log = require('../lib/utils').log;
 log.setLevel('error');
@@ -17,10 +17,10 @@ test(
   function (t) {
     const TEST_PATH = path.resolve(__dirname, './fixture/theme/theme-exists');
     process.chdir(TEST_PATH);
-    theme({ theme: 'oceandeep' });
-    const result = walkSync(path.resolve(process.cwd(), 'themes', THEME));
+    const option = theme({ theme: THEME });
+    // const result = walkSync(path.resolve(process.cwd(), 'themes', THEME));
 
-    t.equal(result.length, 0);
+    t.equal(option.templates.page(), 'hello world\n');
     t.end();
   }
 );
