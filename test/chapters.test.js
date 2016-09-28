@@ -188,7 +188,7 @@ test(
     t.equal(content[1]['b/'], 'b');
     t.equal(content[2]['b/c/'], 'c');
     t.equal(content[3]['b/c/d.md'], 'Title D');
-    t.end();
     fs.unlinkSync(path.join(TEST_PATH, CHAPTERS_FILE));
+    t.end();
   }
 );
