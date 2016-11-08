@@ -1,5 +1,20 @@
 # Option Object
 
+## option.site
+
+`option.site` is the site name.
+
+## option.dir
+
+`option.dir` is the document directory of the repo.
+
+## option.page_title
+
+`option.page_title` is the page name of a document page.
+
+- For sub-directories, it is `option.site`.
+- 
+
 ## option.chapters
 
 `option.chapters` is an array which includes all `.md` files and directories in the `docs` directory.

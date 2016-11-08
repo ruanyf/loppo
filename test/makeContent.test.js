@@ -11,6 +11,28 @@ const test_title = '[utils.js/makeContent] ';
 
 test(
   test_title +
+  'regular markdown file',
+  function (t) {
+    const TEST_PATH = path.resolve(__dirname, './fixture/makeContent/regular-markdown-file');
+    process.chdir(TEST_PATH);
+    let opt = {
+      dir: 'docs',
+      chapters: [
+        { 'first.md': 'First' },
+        { 'dir1/': 'dir1' },
+        { 'dir1/a.md': 'Title A' },
+        { 'dir2/': 'dir2' },
+        { 'dir2/b.md': 'Title B' }
+      ]
+    };
+    opt = makeContent('first.md', opt);
+    t.equal(opt.content, 'This is a regular file.\n');
+    t.end();
+  }
+);
+
+test(
+  test_title +
   'root index with README',
   function (t) {
     const TEST_PATH = path.resolve(__dirname, './fixture/makeContent/root-index-with-readme');
