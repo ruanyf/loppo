@@ -13,7 +13,24 @@
 `option.page_title` is the page name of a document page.
 
 - For sub-directories, it is `option.site`.
-- 
+- For root directory, it is the `<h1>` title of `README.md`. If not, it is `option.site`.
+- For regular `.md` file, it is the `<h1>` title of the file. If not, it is the title in `chapters.yml`.
+
+## option.previous_page
+
+`option.previous_page` is an object which represents the previous page of current page.
+
+- For the first page, it is `null`.
+- For other pages, it is the previous item before the current page in `chapters.yml`.
+
+For example, current page is `b.md` as following. Then `option.previous_page` is `{ 'b.md': 'Title B' }`.
+
+```javascript
+- a.md: Title A
+- b.md: Title B
+```
+
+Attention, if current page is the first item of `chapters.yml` and is not `index.md`，`option.previous_page` will be `{ 'index.md': 'Home' }`.
 
 ## option.chapters
 
