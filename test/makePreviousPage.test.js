@@ -92,3 +92,25 @@ test(
     t.end();
   }
 );
+
+test(
+  test_title +
+  'sub level index.md',
+  function (t) {
+    const opt = {
+      dir: 'docs',
+      site: 'My Site',
+      chapters: [
+        { 'x.md': 'Title X' },
+        { 'dir1/': 'dir1' },
+        { 'dir1/index.md': 'Sub Index' },
+        { 'dir1/a.md': 'Title A' },
+        { 'dir2/': 'dir2' },
+        { 'dir2/b.md': 'Title B' }
+      ]
+    };
+    const optionObj = makePreviousPage('dir1/index.md', opt);
+    t.deepEqual(optionObj.previous_page, { 'x.md': 'Title X' });
+    t.end();
+  }
+);

@@ -129,3 +129,23 @@ test(
     t.end();
   }
 );
+
+test(
+  test_title +
+  'sub level index.md',
+  function (t) {
+    const opt = {
+      dir: 'docs',
+      site: 'My Site',
+      chapters: [
+        { 'a.md': 'Title A' },
+        { 'dir1/': 'dir1' },
+        { 'dir1/index.md': 'Sub Index' },
+        { 'dir1/b.md': 'Title B' }
+      ]
+    };
+    const optionObj = makeNextPage('dir1/', opt);
+    t.deepEqual(optionObj.next_page, { 'dir1/b.md': 'Title B' });
+    t.end();
+  }
+);

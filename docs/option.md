@@ -82,3 +82,17 @@ For example, if the root path is `/` and the current page is `dir1/a.md`, `optio
 
 `option.build_time` is the time of building the current page, which is a JavaScript Date instance.
 
+### option.breadcrumb
+
+`option.breadcrumb` is an array containing the location information of current page.
+
+For example, if current page is `dir1/dir2/a.md`, `option.breadcrumb` is the following.
+
+```javascript
+[
+  { 'index.md': 'Home' },
+  { 'dir1/': 'dir1' },
+  { 'dir1/dir2/': 'dir2' },
+  { 'dir1/dir2/a.md': 'Title A' }
+]
+```
