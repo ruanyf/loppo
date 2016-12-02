@@ -28,7 +28,7 @@ If the `doc` directory has nothing, `option.chapters` will be `undefined`.
 
 ## option.content
 
-`option.content` is the markdown content of current page. It has three posibilities.
+`option.content` is the HTML markup of current page converted from markdown. It has three posibilities.
 
 - For regular `.md` file, `option.content` is its markdown content.
 - For the root directory (`docs` directory), `option.content` is the content of `README.md` under the project root directory (not `docs` directory)。If no `README.md`，`option.content` is an empty string.
@@ -96,3 +96,7 @@ For example, if current page is `dir1/dir2/a.md`, `option.breadcrumb` is the fol
   { 'dir1/dir2/a.md': 'Title A' }
 ]
 ```
+
+### option.toc
+
+`option.toc` is the table of content of current page.
