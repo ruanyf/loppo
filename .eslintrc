@@ -24,6 +24,7 @@
     "prefer-rest-params": 0,
     "react/prop-types": 0,
     "strict": 0,
-    "vars-on-top": 0
+    "vars-on-top": 0,
+    "max-len": 0
   }
 }
