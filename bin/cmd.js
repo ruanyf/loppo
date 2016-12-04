@@ -16,9 +16,9 @@ const argv = require('yargs')
     describe: 'output directory',
     type: 'string'
   })
-  .option('output', {
+  .option('site', {
     alias: 's',
-    default: 'site',
+    default: 'Documents',
     describe: 'site name',
     type: 'string'
   })
