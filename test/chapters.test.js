@@ -25,9 +25,9 @@ test(
   }
 );
 
-test(
+test.skip(
   test_title +
-  'if no docs directory exists, it will throw an error',
+  'if no docs directory exists, it will print throw an error',
   function (t) {
     const TEST_PATH = path.resolve(__dirname, './fixture/chapters/no-docs-directory-exists');
     process.chdir(TEST_PATH);

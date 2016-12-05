@@ -22,11 +22,15 @@
 ]
 ```
 
-If the `doc` directory has nothing, `option.chapters` will be `undefined`.
+If the `doc` directory has nothing, `option.chapters` will be an empty array.
+
+### option.chapterList
+
+`option.chapterList` is a HTML string converted from `option.chapters`.
 
 ## Page Attributes
 
-## option.content
+### option.content
 
 `option.content` is the HTML markup of current page converted from markdown. It has three posibilities.
 
@@ -82,9 +86,9 @@ For example, if the root path is `/` and the current page is `dir1/a.md`, `optio
 
 `option.build_time` is the time of building the current page, which is a JavaScript Date instance.
 
-### option.breadcrumb
+### option.breadcrumbOrigin
 
-`option.breadcrumb` is an array containing the location information of current page.
+`option.breadcrumbOrigin` is an array containing the location information of current page.
 
 For example, if current page is `dir1/dir2/a.md`, `option.breadcrumb` is the following.
 
@@ -95,6 +99,19 @@ For example, if current page is `dir1/dir2/a.md`, `option.breadcrumb` is the fol
   { 'dir1/dir2/': 'dir2' },
   { 'dir1/dir2/a.md': 'Title A' }
 ]
+```
+
+### option.breadcrumb
+
+`option.breadcrumb` is a HTML string which containing the location information of current page.
+
+```html
+<div class="breadcrumb-area">
+  <a href="index.html" class="breadcrumb-item" target="_blank">Home</a>
+  <span class="breadcrumb-delimitor"> &gt; </span>
+  <a href="dir1/" class="breadcrumb-item" target="_blank">dir1</a>
+  <!-- ... -->
+</div>
 ```
 
 ### option.toc

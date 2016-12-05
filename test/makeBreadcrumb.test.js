@@ -3,12 +3,12 @@
 // const path = require('path');
 const test = require('tape');
 // const fs = require('fs-extra');
-const makeBreadcrumb = require('../lib/utils').makeBreadcrumb;
+const makeBreadcrumbOrigin = require('../lib/utils').makeBreadcrumbOrigin;
 
 const log = require('../lib/utils').log;
 log.setLevel('error');
 
-const test_title = '[utils.js/makeBreadcrumb] ';
+const test_title = '[utils.js/makeBreadcrumbOrigin] ';
 
 test(
   test_title +
@@ -24,8 +24,8 @@ test(
         { 'dir1/dir2/b.md': 'Title B' }
       ]
     };
-    const optionObj = makeBreadcrumb('/', opt);
-    t.deepEqual(optionObj.breadcrumb, [{ 'index.md': 'Home' }]);
+    const optionObj = makeBreadcrumbOrigin('/', opt);
+    t.deepEqual(optionObj.breadcrumbOrigin, [{ 'index.md': 'Home' }]);
     t.end();
   }
 );
@@ -45,8 +45,8 @@ test(
         { 'dir1/dir2/b.md': 'Title B' }
       ]
     };
-    const optionObj = makeBreadcrumb('index.md', opt);
-    t.deepEqual(optionObj.breadcrumb, [{ 'index.md': 'Index' }]);
+    const optionObj = makeBreadcrumbOrigin('index.md', opt);
+    t.deepEqual(optionObj.breadcrumbOrigin, [{ 'index.md': 'Index' }]);
     t.end();
   }
 );
@@ -66,8 +66,8 @@ test(
         { 'dir1/dir2/b.md': 'Title B' }
       ]
     };
-    const optionObj = makeBreadcrumb('a.md', opt);
-    t.deepEqual(optionObj.breadcrumb, [{ 'index.md': 'Home' }, { 'a.md': 'Title A' }]);
+    const optionObj = makeBreadcrumbOrigin('a.md', opt);
+    t.deepEqual(optionObj.breadcrumbOrigin, [{ 'index.md': 'Home' }, { 'a.md': 'Title A' }]);
     t.end();
   }
 );
@@ -87,8 +87,8 @@ test(
         { 'dir1/dir2/b.md': 'Title B' }
       ]
     };
-    const optionObj = makeBreadcrumb('dir1/', opt);
-    t.deepEqual(optionObj.breadcrumb, [{ 'index.md': 'Home' }, { 'dir1/': 'dir1' }]);
+    const optionObj = makeBreadcrumbOrigin('dir1/', opt);
+    t.deepEqual(optionObj.breadcrumbOrigin, [{ 'index.md': 'Home' }, { 'dir1/': 'dir1' }]);
     t.end();
   }
 );
@@ -108,8 +108,8 @@ test(
         { 'dir1/dir2/b.md': 'Title B' }
       ]
     };
-    const optionObj = makeBreadcrumb('dir1/dir2/b.md', opt);
-    t.deepEqual(optionObj.breadcrumb, [
+    const optionObj = makeBreadcrumbOrigin('dir1/dir2/b.md', opt);
+    t.deepEqual(optionObj.breadcrumbOrigin, [
       { 'index.md': 'Home' },
       { 'dir1/': 'dir1' },
       { 'dir1/dir2/': 'dir2' },
@@ -134,8 +134,8 @@ test(
         { 'dir1/dir2/index.md': 'Sub Index' }
       ]
     };
-    const optionObj = makeBreadcrumb('dir1/dir2/index.md', opt);
-    t.deepEqual(optionObj.breadcrumb, [
+    const optionObj = makeBreadcrumbOrigin('dir1/dir2/index.md', opt);
+    t.deepEqual(optionObj.breadcrumbOrigin, [
       { 'index.md': 'Home' },
       { 'dir1/': 'dir1' },
       { 'dir1/dir2/index.md': 'Sub Index' }
