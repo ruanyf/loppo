@@ -3,12 +3,12 @@
 // const path = require('path');
 const test = require('tape');
 // const fs = require('fs-extra');
-const makePreviousPage = require('../lib/utils').makePreviousPage;
+const makePreviousPageObject = require('../lib/utils').makePreviousPageObject;
 
 const log = require('../lib/utils').log;
 log.setLevel('error');
 
-const test_title = '[utils.js/makePreviousPage] ';
+const test_title = '[utils.js/makePreviousPageObject] ';
 
 test(
   test_title +
@@ -24,8 +24,8 @@ test(
         { 'dir2/b.md': 'Title B' }
       ]
     };
-    const optionObj = makePreviousPage('/', opt);
-    t.equal(optionObj.previous_page, null);
+    const optionObj = makePreviousPageObject('/', opt);
+    t.equal(optionObj.previous_page_object, null);
     t.end();
   }
 );
@@ -45,8 +45,8 @@ test(
         { 'dir2/b.md': 'Title B' }
       ]
     };
-    const optionObj = makePreviousPage('index.md', opt);
-    t.equal(optionObj.previous_page, null);
+    const optionObj = makePreviousPageObject('index.md', opt);
+    t.equal(optionObj.previous_page_object, null);
     t.end();
   }
 );
@@ -66,8 +66,8 @@ test(
         { 'dir2/b.md': 'Title B' }
       ]
     };
-    const optionObj = makePreviousPage('x.md', opt);
-    t.deepEqual(optionObj.previous_page, { 'index.md': 'Home' });
+    const optionObj = makePreviousPageObject('x.md', opt);
+    t.deepEqual(optionObj.previous_page_object, { 'index.md': 'Home' });
     t.end();
   }
 );
@@ -87,8 +87,8 @@ test(
         { 'dir2/b.md': 'Title B' }
       ]
     };
-    const optionObj = makePreviousPage('dir1/a.md', opt);
-    t.deepEqual(optionObj.previous_page, { 'dir1/': 'dir1' });
+    const optionObj = makePreviousPageObject('dir1/a.md', opt);
+    t.deepEqual(optionObj.previous_page_object, { 'dir1/': 'dir1' });
     t.end();
   }
 );
@@ -109,8 +109,8 @@ test(
         { 'dir2/b.md': 'Title B' }
       ]
     };
-    const optionObj = makePreviousPage('dir1/index.md', opt);
-    t.deepEqual(optionObj.previous_page, { 'x.md': 'Title X' });
+    const optionObj = makePreviousPageObject('dir1/index.md', opt);
+    t.deepEqual(optionObj.previous_page_object, { 'x.md': 'Title X' });
     t.end();
   }
 );

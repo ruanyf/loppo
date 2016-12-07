@@ -3,12 +3,12 @@
 // const path = require('path');
 const test = require('tape');
 // const fs = require('fs-extra');
-const makeNextPage = require('../lib/utils').makeNextPage;
+const makeNextPageObject = require('../lib/utils').makeNextPageObject;
 
 const log = require('../lib/utils').log;
 log.setLevel('error');
 
-const test_title = '[utils.js/makeNextPage] ';
+const test_title = '[utils.js/makeNextPageObject] ';
 
 test(
   test_title +
@@ -19,8 +19,8 @@ test(
       site: 'My Site',
       chapters: []
     };
-    const optionObj = makeNextPage('/', opt);
-    t.equal(optionObj.next_page, null);
+    const optionObj = makeNextPageObject('/', opt);
+    t.equal(optionObj.next_page_object, null);
     t.end();
   }
 );
@@ -36,8 +36,8 @@ test(
         { 'index.md': 'Title Index' }
       ]
     };
-    const optionObj = makeNextPage('/', opt);
-    t.equal(optionObj.next_page, null);
+    const optionObj = makeNextPageObject('/', opt);
+    t.equal(optionObj.next_page_object, null);
     t.end();
   }
 );
@@ -53,8 +53,8 @@ test(
         { 'a.md': 'Title A' }
       ]
     };
-    const optionObj = makeNextPage('/', opt);
-    t.deepEqual(optionObj.next_page, { 'a.md': 'Title A' });
+    const optionObj = makeNextPageObject('/', opt);
+    t.deepEqual(optionObj.next_page_object, { 'a.md': 'Title A' });
     t.end();
   }
 );
@@ -70,8 +70,8 @@ test(
         { 'index.md': 'Title Index' }
       ]
     };
-    const optionObj = makeNextPage('index.md', opt);
-    t.equal(optionObj.next_page, null);
+    const optionObj = makeNextPageObject('index.md', opt);
+    t.equal(optionObj.next_page_object, null);
     t.end();
   }
 );
@@ -88,8 +88,8 @@ test(
         { 'a.md': 'Title A' }
       ]
     };
-    const optionObj = makeNextPage('index.md', opt);
-    t.deepEqual(optionObj.next_page, { 'a.md': 'Title A' });
+    const optionObj = makeNextPageObject('index.md', opt);
+    t.deepEqual(optionObj.next_page_object, { 'a.md': 'Title A' });
     t.end();
   }
 );
@@ -106,8 +106,8 @@ test(
         { 'b.md': 'Title B' }
       ]
     };
-    const optionObj = makeNextPage('a.md', opt);
-    t.deepEqual(optionObj.next_page, { 'b.md': 'Title B' });
+    const optionObj = makeNextPageObject('a.md', opt);
+    t.deepEqual(optionObj.next_page_object, { 'b.md': 'Title B' });
     t.end();
   }
 );
@@ -124,8 +124,8 @@ test(
         { 'b.md': 'Title B' }
       ]
     };
-    const optionObj = makeNextPage('b.md', opt);
-    t.deepEqual(optionObj.next_page, null);
+    const optionObj = makeNextPageObject('b.md', opt);
+    t.deepEqual(optionObj.next_page_object, null);
     t.end();
   }
 );
@@ -144,8 +144,8 @@ test(
         { 'dir1/b.md': 'Title B' }
       ]
     };
-    const optionObj = makeNextPage('dir1/', opt);
-    t.deepEqual(optionObj.next_page, { 'dir1/b.md': 'Title B' });
+    const optionObj = makeNextPageObject('dir1/', opt);
+    t.deepEqual(optionObj.next_page_object, { 'dir1/b.md': 'Title B' });
     t.end();
   }
 );

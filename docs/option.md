@@ -50,9 +50,9 @@ If the `doc` directory has nothing, `option.chapters` will be an empty array.
 - For root directory, it is the `<h1>` title of `README.md`. If not, it is `option.site`.
 - For regular `.md` file, it is the `<h1>` title of the file. If not, it is the title in `chapters.yml`.
 
-### option.previous_page
+### option.previous_page_object
 
-`option.previous_page` is an object which represents the previous page of current page.
+`option.previous_page_object` is an object which represents the previous page of current page.
 
 - For the first page, it is `null`.
 - For other pages, it is the previous item before the current page in `chapters.yml`.
@@ -66,19 +66,27 @@ For example, current page is `b.md` as following. Then `option.previous_page` is
 
 Attention, if current page is the first item of `chapters.yml` and is not `index.md`，`option.previous_page` will be `{ 'index.md': 'Home' }`.
 
-### option.next_page
+### option.previous_page
 
-`option.next_page` is object which represents the next page of current page.
+`option.previous_page` is a HTML string converted from `option.previous_page_object`.
+
+### option.next_page_object
+
+`option.next_page_object` is object which represents the next page of current page.
 
 - For the last page, it is `null`.
 - For other page, it is the next item after the current page in `chapters.yml`.
 
-For example, current page is `a.md` as following. Then `option.next_page` is `{ 'a.md': 'Title A' }`.
+For example, current page is `a.md` as following. Then `option.next_page_object` is `{ 'a.md': 'Title A' }`.
 
 ```javascript
 - a.md: Title A
 - b.md: Title B
 ```
+
+### option.next_page
+
+`option.next_page` is a HTML string converted from `option.next_page_object`.
 
 ### option.relative_root_path
 
