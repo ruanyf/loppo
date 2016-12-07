@@ -28,6 +28,10 @@ If the `doc` directory has nothing, `option.chapters` will be an empty array.
 
 `option.chapterList` is a HTML string converted from `option.chapters`.
 
+### option.loppo_version
+
+`option.loppo_version` is the version number of Loppo.
+
 ## Page Attributes
 
 ### option.content
