@@ -25,6 +25,10 @@
     "react/prop-types": 0,
     "strict": 0,
     "vars-on-top": 0,
-    "max-len": 0
+    "max-len": 0,
+    "import/newline-after-import": 0,
+    "import/no-dynamic-require": 0,
+    "no-path-concat": 0,
+    "prefer-spread": 0
   }
 }
