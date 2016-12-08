@@ -3,7 +3,7 @@
 const path = require('path');
 
 const argv = require('yargs')
-  .usage('Usage: loppo [Options]')
+  .usage('Usage: loppo [Options], loppo [Commands] [Options]')
   .option('dir', {
     alias: 'd',
     default: 'docs',
@@ -37,6 +37,21 @@ const argv = require('yargs')
     describe: 'help information',
     type: 'boolean'
   })
+  .command({
+    command: 'server',
+    desc: 'build the docs and run a web server',
+    handler: (argv) => {
+      const option = require('../lib')(argv);
+      const connect = require('connect');
+      const serveStatic = require('serve-static');
+
+      connect()
+      .use(serveStatic(path.resolve(process.cwd(), option.output)))
+      .listen(8080, function () {
+        console.log('Server running on 8080...');
+      });
+    }
+  })
   .help('help')
   .example('loppo --dir docs --output dist')
   .argv;
@@ -51,5 +66,6 @@ if (argv.debug) {
   process.env.DEBUG = '*';
 }
 
-require('../lib')(argv);
-
+if (!argv._.includes('server')) {
+  require('../lib')(argv);
+}

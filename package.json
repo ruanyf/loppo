@@ -20,6 +20,7 @@
   "author": "Ruan Yifeng",
   "license": "GPL-3.0",
   "dependencies": {
+    "connect": "^3.5.0",
     "debug": "^2.2.0",
     "fs-extra": "1.x",
     "highlight.js": "^9.8.0",
@@ -30,6 +31,7 @@
     "loppo-theme-oceandeep": "1.x",
     "markdown-it": "^8.0.0",
     "markdown-it-toc-and-anchor": "^4.1.1",
+    "serve-static": "^1.11.1",
     "walk-sync": "^0.3.1",
     "yargs": "^6.5.0"
   },
