@@ -30,6 +30,12 @@ If the `doc` directory has nothing, `option.chapters` will be an empty array.
 
 ## Page Attributes
 
+### option.current_path
+
+`option.current_path` is the relative path of current page, such like `dir1/example.md`.
+
+For the index page of document directory, `option.current_path` is `/`.
+
 ### option.content
 
 `option.content` is the HTML markup of current page converted from markdown. It has three posibilities.
