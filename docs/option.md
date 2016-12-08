@@ -24,10 +24,6 @@
 
 If the `doc` directory has nothing, `option.chapters` will be an empty array.
 
-### option.chapterList
-
-`option.chapterList` is a HTML string converted from `option.chapters`.
-
 ### option.loppo_version
 
 `option.loppo_version` is the version number of Loppo.
@@ -129,3 +125,7 @@ For example, if current page is `dir1/dir2/a.md`, `option.breadcrumb` is the fol
 ### option.toc
 
 `option.toc` is the table of content of current page.
+
+### option.chapterList
+
+`option.chapterList` is a HTML string converted from `option.chapters`.
