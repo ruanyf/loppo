@@ -16,7 +16,7 @@ test(
   function (t) {
     const TEST_PATH = path.resolve(__dirname, './fixture/copy/copy-to-output-directory');
     process.chdir(TEST_PATH);
-    copy({ theme: 'oceandeep', output: 'dist' });
+    copy({ theme: 'oceandeep', dir:'docs', output: 'dist' });
 
     t.equal(fs.existsSync(path.resolve(process.cwd(), 'dist')), true);
     t.equal(fs.existsSync(path.resolve(process.cwd(), 'dist', 'index.html')), true);
@@ -31,7 +31,7 @@ test(
   function (t) {
     const TEST_PATH = path.resolve(__dirname, './fixture/copy/excludes-template-files');
     process.chdir(TEST_PATH);
-    copy({ theme: 'oceandeep', output: 'dist' });
+    copy({ theme: 'oceandeep', dir: 'docs', output: 'dist' });
 
     t.equal(fs.existsSync(path.resolve(process.cwd(), 'dist')), true);
     t.equal(fs.existsSync(path.resolve(process.cwd(), 'dist', 'index.template')), false);
