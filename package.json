@@ -28,7 +28,7 @@
     "lodash": "^4.16.2",
     "log-symbols": "^1.0.2",
     "log4js": "1.x",
-    "loppo-theme-oceandeep": "1.x",
+    "loppo-theme-oceandeep": "2.x",
     "markdown-it": "^8.0.0",
     "markdown-it-toc-and-anchor": "^4.1.1",
     "serve-static": "^1.11.1",
