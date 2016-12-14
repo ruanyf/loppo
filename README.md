@@ -8,6 +8,8 @@ Loppo is an extremely simple markdown document site generator. You get your site
 
 ## How to use
 
+**Attention: Loppo is still in its very early stages. Use it in production at your own risk.**
+
 First of all, arrange your documents into the following structure.
 
 ```
