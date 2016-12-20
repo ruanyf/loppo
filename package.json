@@ -1,6 +1,6 @@
 {
   "name": "loppo",
-  "version": "0.2.0",
+  "version": "0.3.0",
   "description": "a handy static document generator",
   "main": "index.js",
   "scripts": {
@@ -18,10 +18,7 @@
     "document"
   ],
   "homepage": "https://github.com/ruanyf/loppo",
-  "repository": {
-    "type": "git",
-    "url": "https://github.com/ruanyf/loppo.git"
-  },
+  "repository": {},
   "author": "Ruan Yifeng",
   "license": "GPL-3.0",
   "dependencies": {
@@ -77,6 +74,5 @@
     "commitizen": {
       "path": "node_modules/cz-conventional-changelog"
     }
-  },
-  "repository": {}
+  }
 }
