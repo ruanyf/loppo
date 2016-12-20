@@ -39,3 +39,17 @@ test(
     fs.removeSync(path.resolve(process.cwd(), 'themes', THEME));
   }
 );
+
+test(
+  test_title +
+  '<% includes %> syntax',
+  function (t) {
+    const TEST_PATH = path.resolve(__dirname, './fixture/theme/includes');
+    process.chdir(TEST_PATH);
+    const option = theme({ theme: THEME });
+    // const result = walkSync(path.resolve(process.cwd(), 'themes', THEME));
+    t.equal(option.templates.page(), '<h1>Hello</h1>\n World\n\nnew\n2016\n\n');
+    t.end();
+    // fs.removeSync(path.resolve(process.cwd(), 'themes', THEME));
+  }
+);
