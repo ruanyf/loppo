@@ -54,6 +54,7 @@ const argv = require('yargs')
   })
   .help('help')
   .example('loppo --dir docs --output dist')
+  .example('loppo server')
   .argv;
 
 if (argv.version) {
