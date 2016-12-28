@@ -37,6 +37,7 @@ const argv = require('yargs')
     describe: 'help information',
     type: 'boolean'
   })
+/*
   .command({
     command: 'server',
     desc: 'build the docs and run a web server',
@@ -52,6 +53,8 @@ const argv = require('yargs')
       });
     }
   })
+*/
+  .command(require('./server'))
   .help('help')
   .example('loppo --dir docs --output dist')
   .example('loppo server')
