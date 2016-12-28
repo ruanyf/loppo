@@ -55,10 +55,6 @@
     "validate-commit-msg": "^2.6.1"
   },
   "config": {
-    "ghooks": {
-      "pre-commit": "npm run lint",
-      "commit-msg": "npm run lint:msg"
-    },
     "validate-commit-msg": {
       "types": [
         "feat",
