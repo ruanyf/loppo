@@ -12,7 +12,7 @@ function print(filesArr) {
   let totalLine = 0;
   let totalWord = 0;
   let totalChar = 0;
-  filesArr.forEach(f => {
+  filesArr.forEach((f) => {
     totalLine += f.line;
     totalWord += f.word;
     totalChar += f.char;
@@ -47,7 +47,7 @@ module.exports = {
     const filesArr = [];
     chaptersArr
     .filter(c => Object.keys(c)[0].substr(-3) === '.md')
-    .forEach(c => {
+    .forEach((c) => {
       const fileName = Object.keys(c)[0];
       const filePath = path.resolve(process.cwd(), docDir, fileName);
       let fileContent = fs.readFileSync(filePath, 'utf8').trim();
@@ -90,7 +90,6 @@ module.exports = {
     });
 
     print(filesArr);
-
   }
 };
 
