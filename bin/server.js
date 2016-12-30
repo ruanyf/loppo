@@ -1,3 +1,5 @@
+'use strict';
+
 const connect = require('connect');
 const serveStatic = require('serve-static');
 const path = require('path');

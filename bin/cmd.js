@@ -37,24 +37,8 @@ const argv = require('yargs')
     describe: 'help information',
     type: 'boolean'
   })
-/*
-  .command({
-    command: 'server',
-    desc: 'build the docs and run a web server',
-    handler: (argv) => {
-      const option = require('../lib')(argv);
-      const connect = require('connect');
-      const serveStatic = require('serve-static');
-
-      connect()
-      .use(serveStatic(path.resolve(process.cwd(), option.output)))
-      .listen(8080, function () {
-        console.log('Server running on 8080...');
-      });
-    }
-  })
-*/
   .command(require('./server'))
+  .command(require('./count'))
   .help('help')
   .example('loppo --dir docs --output dist')
   .example('loppo server')
@@ -70,6 +54,7 @@ if (argv.debug) {
   process.env.DEBUG = '*';
 }
 
-if (!argv._.includes('server')) {
+if (!argv._.includes('server') && !argv._.includes('count')) {
   require('../lib')(argv);
 }
+
