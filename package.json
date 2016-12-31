@@ -20,7 +20,10 @@
     "document"
   ],
   "homepage": "https://github.com/ruanyf/loppo",
-  "repository": {},
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/ruanyf/loppo.git"
+  },
   "author": "Ruan Yifeng",
   "license": "GPL-3.0",
   "dependencies": {
