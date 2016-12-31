@@ -8,7 +8,22 @@ const hljs = require('highlight.js');
 const htmlToText = require('html-to-text');
 const wordCount = require('wordcount');
 
-function print(filesArr) {
+function print(filesArr, option) {
+  if (option.file) {
+    const fileList = [];
+    filesArr.forEach(f => fileList.push(f.file));
+    const position = fileList.indexOf(option.file);
+    if (position === -1) {
+      console.log('Error: cannot find ' + option.file);
+      return;
+    }
+    console.log('[File] ' + option.file);
+    console.log('[Lines] ' + filesArr[position].line);
+    console.log('[Words] ' + filesArr[position].word);
+    console.log('[Chars] ' + filesArr[position].char);
+    return;
+  }
+
   let totalLine = 0;
   let totalWord = 0;
   let totalChar = 0;
@@ -17,14 +32,19 @@ function print(filesArr) {
     totalWord += f.word;
     totalChar += f.char;
 
-    console.log('[File] ' + f.file);
-    console.log('[Lines] ' + f.line);
-    console.log('[Words] ' + f.word);
-    console.log('[Chars] ' + f.char);
-    console.log();
+    if (option.detail) {
+      console.log('[File] ' + f.file);
+      console.log('[Lines] ' + f.line);
+      console.log('[Words] ' + f.word);
+      console.log('[Chars] ' + f.char);
+      console.log();
+    }
   });
 
-  console.log('[Total]');
+  if (option.detail) {
+    console.log('## Total');
+  }
+
   console.log('[Files] ' + filesArr.length);
   console.log('[Lines] ' + totalLine);
   console.log('[Words] ' + totalWord);
@@ -34,7 +54,19 @@ function print(filesArr) {
 module.exports = {
   command: 'count',
   desc: 'word counts for each markdown file',
-  handler: (/* argv */) => {
+  builder: yargs => yargs
+    .option('file', {
+      alias: 'f',
+      describe: 'the file name to count',
+      type: 'string'
+    })
+    .option('detail', {
+      alias: 'd',
+      describe: 'detail mode',
+      default: 'false',
+      type: 'boolean'
+    }),
+  handler: (argv) => {
     const chaptersPath = path.resolve(process.cwd(), 'chapters.yml');
     const chaptersContent = fs.readFileSync(chaptersPath, 'utf8');
     const chaptersArr = yaml.safeLoad(chaptersContent);
@@ -89,7 +121,7 @@ module.exports = {
       filesArr.push(result);
     });
 
-    print(filesArr);
+    print(filesArr, argv);
   }
 };
 
