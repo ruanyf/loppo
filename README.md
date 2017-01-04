@@ -1,4 +1,4 @@
-Loppo is an extremely simple markdown document site generator. You get your site with only one command. Please visit [demo](http://redux.ruanyifeng.com/).
+Loppo is an extremely easy static site generator of markdown documents. You get your site with only one command. Please visit [demo](http://redux.ruanyifeng.com/).
 
 ## Features
 
