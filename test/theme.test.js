@@ -20,7 +20,13 @@ test(
     process.chdir(TEST_PATH);
     const option = theme({ theme: THEME });
     // const result = walkSync(path.resolve(process.cwd(), 'themes', THEME));
-    t.equal(option.templates.page(), 'hello world\n');
+	let result = '';
+	if (path.sep !== '/') {
+	  result = 'hello world\r\n';
+	} else {
+	  result = 'hello world\n';
+	}
+    t.equal(option.templates.page(), result);
     t.end();
   }
 );
@@ -48,7 +54,13 @@ test(
     process.chdir(TEST_PATH);
     const option = theme({ theme: THEME });
     // const result = walkSync(path.resolve(process.cwd(), 'themes', THEME));
-    t.equal(option.templates.page(), '<h1>Hello</h1>\n World\n\nnew\n2016\n\n');
+	let result = '';
+	if (path.sep !== '/') {
+	  result = '<h1>Hello</h1>\r\n World\r\n\r\nnew\r\n2016\r\n\r\n';
+	} else {
+	  result = '<h1>Hello</h1>\n World\n\nnew\n2016\n\n';
+	}
+    t.equal(option.templates.page(), result);
     t.end();
     // fs.removeSync(path.resolve(process.cwd(), 'themes', THEME));
   }
