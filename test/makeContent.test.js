@@ -26,13 +26,13 @@ test(
       ]
     };
     opt = makeContent('first.md', opt);
-	let result = '';
-	if (path.sep !== '/') {
-	  result = 'This is a regular file.\r\n';
-	} else {
-	  result = 'This is a regular file.\n';
-	}
-    t.equal(opt.content,result);
+    let result = '';
+    if (path.sep !== '/') {
+      result = 'This is a regular file.\r\n';
+    } else {
+      result = 'This is a regular file.\n';
+    }
+    t.equal(opt.content, result);
     t.end();
   }
 );
@@ -53,12 +53,12 @@ test(
       ]
     };
     opt = makeContent('/', opt);
-	let result = '';
-	if (path.sep !== '/') {
-	  result = 'This is a README file.\r\n';
-	} else {
-	  result = 'This is a README file.\n';
-	}
+    let result = '';
+    if (path.sep !== '/') {
+      result = 'This is a README file.\r\n';
+    } else {
+      result = 'This is a README file.\n';
+    }
     t.equal(opt.content, result);
     t.end();
   }
@@ -122,7 +122,7 @@ test(
       ]
     };
     opt = makeContent('dir1/', opt);
-    t.equal(opt.content,  '- [Title A](a.html)\n- [Title B](b.html)\n- [dir2](dir2/)\n');
+    t.equal(opt.content, '- [Title A](a.html)\n- [Title B](b.html)\n- [dir2](dir2/)\n');
     t.end();
   }
 );

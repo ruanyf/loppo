@@ -5,6 +5,7 @@ Loppo is an extremely easy static site generator of markdown documents. You get 
 - easy config ([example](https://github.com/ruanyf/redux-docs/blob/master/loppo.yml))
 - simple site structure ([example](https://github.com/ruanyf/redux-docs/blob/master/chapters.yml))
 - friendly template syntax([example](https://github.com/ruanyf/redux-docs/blob/master/themes/oceandeep/page.template))
+- built-in [utility commands](docs/commands.md)
 
 ## How to use
 
@@ -27,7 +28,7 @@ Now, install Loppo.
 $ npm install loppo -g
 ```
 
-Enter your site directory.
+Enter your project directory.
 
 ```bash
 $ cd myProject
@@ -36,11 +37,16 @@ $ cd myProject
 Run the command.
 
 ```bash
-$ loppo server
+$ loppo
 ```
 
-Visit http://127.0.0.1:8080 in your browser.
+Now, Loppo will build the document site under `dist` sub-directory. After the building process, you could open the site in your browser.
+
+```bash
+$ open dist/index.html
+```
 
 ## License
 
 GPL v3
+
