@@ -1,6 +1,6 @@
 {
   "name": "loppo",
-  "version": "0.4.3",
+  "version": "0.4.4",
   "description": "an extremely easy static site generator of markdown documents",
   "main": "index.js",
   "scripts": {
