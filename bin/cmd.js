@@ -54,7 +54,10 @@ if (argv.debug) {
   process.env.DEBUG = '*';
 }
 
-if (!argv._.includes('server') && !argv._.includes('count')) {
+if (
+  argv._.indexOf('server') === -1
+  && argv._.indexOf('count') === -1
+) {
   require('../lib')(argv);
 }
 
