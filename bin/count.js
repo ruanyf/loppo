@@ -3,8 +3,7 @@
 const path = require('path');
 const fs = require('fs-extra');
 const yaml = require('js-yaml');
-const markdownIt = require('markdown-it');
-const hljs = require('highlight.js');
+const md = require('turpan');
 const htmlToText = require('html-to-text');
 const wordCount = require('wordcount');
 
@@ -86,26 +85,6 @@ module.exports = {
       const fileContentArr = fileContent.split('\n');
       if (/^\s*#\s*([^#].*?)\s*$/.test(fileContentArr[0])) fileContentArr.shift();
       fileContent = fileContentArr.join('\n');
-
-      function highlight(str, lang) {
-        if (lang && hljs.getLanguage(lang)) {
-          try {
-            return '<pre class="hljs"><code>' +
-              hljs.highlight(lang, str, true).value +
-              '</code></pre>';
-          } catch (e) {
-            throw e;
-          }
-        }
-        // eslint-disable-next-line
-        return '<pre class="hljs"><code>' + md.utils.escapeHtml(str) + '</code></pre>';
-      }
-
-      const md = markdownIt({
-        html: true,  // Enable HTML tags in source
-        linkify: true,  // Autoconvert URL-like text to links
-        highlight
-      });
 
       const HTMLContent = md.render(fileContent);
       const TEXTContent = htmlToText.fromString(HTMLContent, {
