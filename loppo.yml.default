@@ -9,3 +9,6 @@ theme: oceandeep
 
 # site name
 site: Documents
+
+# site direction
+direction: LTR
