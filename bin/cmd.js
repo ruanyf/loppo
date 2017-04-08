@@ -22,6 +22,11 @@ const argv = require('yargs')
     describe: 'site name',
     type: 'string'
   })
+  .option('direction', {
+    default: 'ltr',
+    describe: 'document character direction',
+    type: 'string'
+  })
   .option('debug', {
     default: false,
     describe: 'debug mode',
