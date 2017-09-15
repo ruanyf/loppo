@@ -37,6 +37,7 @@ test(
     const result = config({});
     t.equal(result.dir, 'aaa');
     t.equal(result.output, 'bbb');
+    t.equal(result.theme, 'new');
     t.end();
   }
 );
@@ -48,13 +49,14 @@ test(
   function (t) {
     const TEST_PATH = path.resolve(__dirname, './fixture/config/options-no-config');
     process.chdir(TEST_PATH);
-    const result = config({ dir: 'aaa', output: 'bbb' });
+    const result = config({ dir: 'aaa', output: 'bbb', theme: 'new' });
     t.equal(result.dir, 'aaa');
     t.equal(result.output, 'bbb');
     t.ok(fs.existsSync(path.join(TEST_PATH, 'loppo.yml')));
     const doc = yaml.load(fs.readFileSync(path.join(TEST_PATH, 'loppo.yml'), 'utf8'));
     t.equal(doc.dir, 'aaa');
     t.equal(doc.output, 'bbb');
+    t.equal(doc.theme, 'new');
     t.end();
     fs.unlinkSync(path.join(TEST_PATH, 'loppo.yml'));
   }
@@ -68,9 +70,10 @@ test(
   function (t) {
     const TEST_PATH = path.resolve(__dirname, './fixture/config/options-with-config');
     process.chdir(TEST_PATH);
-    const result = config({ dir: 'aaa', output: 'bbb' });
+    const result = config({ dir: 'aaa', output: 'bbb', theme: 'new' });
     t.equal(result.dir, 'aaa');
     t.equal(result.output, 'bbb');
+    t.equal(result.theme, 'new');
     const doc = yaml.load(fs.readFileSync(path.join(TEST_PATH, 'loppo.yml'), 'utf8'));
     t.equal(doc.dir, 'ccc');
     t.equal(doc.output, 'ddd');

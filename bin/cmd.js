@@ -27,6 +27,12 @@ const argv = require('yargs')
     describe: 'document character direction',
     type: 'string'
   })
+  .option('theme', {
+    alias: 't',
+    default: 'oceandeep',
+    describe: 'theme name',
+    type: 'string'
+  })
   .option('debug', {
     default: false,
     describe: 'debug mode',
