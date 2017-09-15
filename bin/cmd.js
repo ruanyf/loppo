@@ -60,8 +60,8 @@ if (argv.debug) {
 }
 
 if (
-  argv._.indexOf('server') === -1
-  && argv._.indexOf('count') === -1
+  argv._.indexOf('server') === -1 &&
+  argv._.indexOf('count') === -1
 ) {
   require('../lib')(argv);
 }

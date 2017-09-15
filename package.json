@@ -1,6 +1,6 @@
 {
   "name": "loppo",
-  "version": "0.5.1",
+  "version": "0.5.2",
   "description": "an extremely easy static site generator of markdown documents",
   "main": "index.js",
   "scripts": {
@@ -29,7 +29,7 @@
   "dependencies": {
     "connect": "^3.5.0",
     "debug": "^2.2.0",
-    "fs-extra": "1.x",
+    "fs-extra": "^4.0.2",
     "html-to-text": "^3.0.0",
     "js-yaml": "^3.6.1",
     "lodash": "^4.16.2",
@@ -37,6 +37,7 @@
     "log4js": "1.x",
     "loppo-theme-oceandeep": "2.x",
     "serve-static": "^1.11.1",
+    "tarim": "0.x",
     "turpan": "^0.2.0",
     "walk-sync": "^0.3.1",
     "wordcount": "^1.1.1",
