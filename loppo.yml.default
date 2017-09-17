@@ -4,11 +4,14 @@ dir: docs
 # output directory of generated documents
 output: dist
 
+# site name
+site: Documents
+
 # site theme
 theme: oceandeep
 
-# site name
-site: Documents
+# use customized theme
+customization: false
 
 # site direction
 direction: LTR
