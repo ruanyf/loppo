@@ -113,3 +113,22 @@ test(
     t.end();
   }
 );
+
+test(
+  test_title +
+  'customization is true and no theme dir exists',
+  function (t) {
+    const TEST_PATH = path.resolve(__dirname, './fixture/theme/customization-true-no-themedir-exists');
+    const absoluteThemeDir = path.resolve(
+      __dirname,
+      './fixture/theme/customization-true-no-themedir-exists',
+      THEMEDIR
+    );
+    process.chdir(TEST_PATH);
+    const option = theme({ theme: 'oceandeep', customization: true });
+    t.equal(fs.existsSync(absoluteThemeDir), true);
+    t.equal(typeof option.templates.page, 'function');
+    fs.removeSync(absoluteThemeDir);
+    t.end();
+  }
+);
