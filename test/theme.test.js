@@ -84,3 +84,32 @@ test(
     t.end();
   }
 );
+
+test(
+  test_title +
+  'customization is true and old theme dir is existed',
+  function (t) {
+    const TEST_PATH = path.resolve(__dirname, './fixture/theme/customization-true-old-themedir-exists');
+    process.chdir(TEST_PATH);
+    const option = theme({ theme: 'oceandeep', customization: true });
+    let result = '';
+    if (path.sep !== '/') {
+      result = 'hello world\r\n';
+    } else {
+      result = 'hello world\n';
+    }
+    t.equal(option.templates.page(), result);
+    const oldDir = path.resolve(
+      __dirname,
+      './fixture/theme/customization-true-old-themedir-exists',
+      'themes' + path.sep + 'oceandeep'
+    );
+    const newDir = path.resolve(
+      __dirname,
+      './fixture/theme/customization-true-old-themedir-exists',
+      THEMEDIR
+    );
+    fs.moveSync(newDir, oldDir);
+    t.end();
+  }
+);
