@@ -11,6 +11,7 @@ log.setLevel('error');
 
 const test_title = '[theme.js] ';
 const THEME = 'oceandeep';
+const THEMEDIR = 'loppo-theme';
 
 test(
   test_title +
@@ -63,5 +64,23 @@ test(
     t.equal(option.templates.page(), result);
     t.end();
     // fs.removeSync(path.resolve(process.cwd(), 'themes', THEME));
+  }
+);
+
+test(
+  test_title +
+  'customization is true and theme dir is existed',
+  function (t) {
+    const TEST_PATH = path.resolve(__dirname, './fixture/theme/customization-true-themedir-exists');
+    process.chdir(TEST_PATH);
+    const option = theme({ customization: true });
+    let result = '';
+    if (path.sep !== '/') {
+      result = 'hello world\r\n';
+    } else {
+      result = 'hello world\n';
+    }
+    t.equal(option.templates.page(), result);
+    t.end();
   }
 );
