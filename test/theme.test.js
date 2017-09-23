@@ -132,3 +132,15 @@ test(
     t.end();
   }
 );
+
+test(
+  test_title +
+  'customization is false',
+  function (t) {
+    const absoluteThemeDir = path.resolve(__dirname, THEMEDIR);
+    const option = theme({ theme: 'oceandeep', customization: false });
+    t.equal(fs.existsSync(absoluteThemeDir), false);
+    t.equal(typeof option.templates.page, 'function');
+    t.end();
+  }
+);
