@@ -77,28 +77,28 @@ module.exports = {
 
     const filesArr = [];
     chaptersArr
-    .filter(c => Object.keys(c)[0].substr(-3) === '.md')
-    .forEach((c) => {
-      const fileName = Object.keys(c)[0];
-      const filePath = path.resolve(process.cwd(), docDir, fileName);
-      let fileContent = fs.readFileSync(filePath, 'utf8').trim();
-      const fileContentArr = fileContent.split('\n');
-      if (/^\s*#\s*([^#].*?)\s*$/.test(fileContentArr[0])) fileContentArr.shift();
-      fileContent = fileContentArr.join('\n');
+      .filter(c => Object.keys(c)[0].substr(-3) === '.md')
+      .forEach((c) => {
+        const fileName = Object.keys(c)[0];
+        const filePath = path.resolve(process.cwd(), docDir, fileName);
+        let fileContent = fs.readFileSync(filePath, 'utf8').trim();
+        const fileContentArr = fileContent.split('\n');
+        if (/^\s*#\s*([^#].*?)\s*$/.test(fileContentArr[0])) fileContentArr.shift();
+        fileContent = fileContentArr.join('\n');
 
-      const HTMLContent = md.render(fileContent);
-      const TEXTContent = htmlToText.fromString(HTMLContent, {
-        wordwrap: false,
-        ignoreImage: true,
-        ignoreHref: true
+        const HTMLContent = md.render(fileContent);
+        const TEXTContent = htmlToText.fromString(HTMLContent, {
+          wordwrap: false,
+          ignoreImage: true,
+          ignoreHref: true
+        });
+        const result = {};
+        result.file = fileName;
+        result.line = TEXTContent.split('\n').length;
+        result.word = wordCount(TEXTContent);
+        result.char = TEXTContent.length;
+        filesArr.push(result);
       });
-      const result = {};
-      result.file = fileName;
-      result.line = TEXTContent.split('\n').length;
-      result.word = wordCount(TEXTContent);
-      result.char = TEXTContent.length;
-      filesArr.push(result);
-    });
 
     print(filesArr, argv);
   }

@@ -1,11 +1,4 @@
 {
-  "appenders": [
-    {
-      "type": "console",
-      "layout": {
-        "type": "pattern",
-        "pattern": "%[%4p%] [%r] - %m"
-      }
-    }
-  ]
+  "appenders": { "out": { "type": "stdout", "layout": { "type": "pattern", "pattern": "%[%4p%] [%r] - %m" } } },
+  "categories": { "default": { "appenders": ["out"], "level": "info" } }
 }

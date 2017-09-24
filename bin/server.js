@@ -10,9 +10,9 @@ module.exports = {
   handler: (argv) => {
     const option = require('../lib')(argv);
     connect()
-    .use(serveStatic(path.resolve(process.cwd(), option.output)))
-    .listen(8080, function () {
-      console.log('Server running on 8080...');
-    });
+      .use(serveStatic(path.resolve(process.cwd(), option.output)))
+      .listen(8080, function () {
+        console.log('Server running on 8080...');
+      });
   }
 };
