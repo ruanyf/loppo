@@ -29,7 +29,6 @@ const argv = require('yargs')
   })
   .option('theme', {
     alias: 't',
-    default: 'oceandeep',
     describe: 'theme name',
     type: 'string'
   })

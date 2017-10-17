@@ -1,5 +1,27 @@
 # Option Object
 
+You could use some template variables in your template.
+
+- site
+- dir
+- chapters
+- loppo_version
+- current_path
+- page_title
+- content
+- previous_page_object
+- previous_page
+- option.next_page_object
+- next_page
+- relative_root_path
+- build_time
+- breadcrumbOrigin
+- breadcrumb
+- chapterList
+- toc
+
+The following are details.
+
 ## Global Attributes
 
 ### option.site
