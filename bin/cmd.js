@@ -2,7 +2,7 @@
 
 const path = require('path');
 
-const argv = require('yargs')
+const { argv } = require('yargs')
   .usage('Usage: loppo [Options], loppo [Commands] [Options]')
   .option('dir', {
     alias: 'd',
@@ -51,8 +51,7 @@ const argv = require('yargs')
   .command(require('./count'))
   .help('help')
   .example('loppo --dir docs --output dist')
-  .example('loppo server')
-  .argv;
+  .example('loppo server');
 
 if (argv.version) {
   const pkg = require(path.join(__dirname, '../package.json'));

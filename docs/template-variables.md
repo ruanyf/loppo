@@ -1,28 +1,17 @@
-# Option Object
+# Template variables
 
-You could use some template variables in your template.
+Loppo provides some template variables used in templates.
+
+They could be divided into two categories: site variables and page variables.
+
+## Site variables
+
+The site variables are the same within the whole site.
 
 - site
 - dir
 - chapters
 - loppo_version
-- current_path
-- page_title
-- content
-- previous_page_object
-- previous_page
-- option.next_page_object
-- next_page
-- relative_root_path
-- build_time
-- breadcrumbOrigin
-- breadcrumb
-- chapterList
-- toc
-
-The following are details.
-
-## Global Attributes
 
 ### option.site
 
@@ -50,7 +39,23 @@ If the `doc` directory has nothing, `option.chapters` will be an empty array.
 
 `option.loppo_version` is the version number of Loppo.
 
-## Page Attributes
+## Page variables
+
+Page variables are different for every document page.
+
+- current_path
+- page_title
+- content
+- previous_page_object
+- previous_page
+- option.next_page_object
+- next_page
+- relative_root_path
+- build_time
+- breadcrumbOrigin
+- breadcrumb
+- chapterList
+- toc
 
 ### option.current_path
 

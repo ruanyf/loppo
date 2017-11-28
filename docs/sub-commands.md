@@ -1,6 +1,9 @@
-# Commands
+# Sub-commands
 
-Loppo supports several commands.
+Loppo supports two git-style subcommands.
+
+- loppo server
+- loppo count
 
 ## loppo server
 

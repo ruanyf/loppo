@@ -6,7 +6,7 @@
   },
   "plugins": [
   ],
-  "extends": "eslint-config-airbnb",
+  "extends": "airbnb",
   "rules": {
     "camelcase": 0,
     "comma-dangle": 0,
@@ -28,6 +28,7 @@
     "import/newline-after-import": 0,
     "import/no-dynamic-require": 0,
     "no-path-concat": 0,
-    "prefer-spread": 0
+    "prefer-spread": 0,
+    "prefer-destructuring": 0
   }
 }
