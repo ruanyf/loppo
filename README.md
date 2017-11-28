@@ -5,7 +5,7 @@ Loppo is an extremely easy static site generator of markdown documents. You get 
 - easy config ([example](https://raw.githubusercontent.com/ruanyf/loppo/master/loppo.yml.default))
 - simple site structure ([example](https://raw.githubusercontent.com/ruanyf/redux-docs/master/chapters.yml))
 - friendly template syntax([example](https://raw.githubusercontent.com/ruanyf/redux-docs/master/themes/oceandeep/page.template))
-- built-in [utility commands](docs/commands.md)
+- built-in [utility commands](docs/sub-commands.md)
 
 ## How to use
 
