@@ -25,7 +25,7 @@ test(
       ]
     };
     const optionObj = makeBreadcrumbOrigin('/', opt);
-    t.deepEqual(optionObj.breadcrumbOrigin, [{ 'index.md': 'Home' }]);
+    t.deepEqual(optionObj.breadcrumbOrigin, [{ path: 'index.html', text: 'Home' }]);
     t.end();
   }
 );
@@ -46,7 +46,7 @@ test(
       ]
     };
     const optionObj = makeBreadcrumbOrigin('index.md', opt);
-    t.deepEqual(optionObj.breadcrumbOrigin, [{ 'index.md': 'Index' }]);
+    t.deepEqual(optionObj.breadcrumbOrigin, [{ path: 'index.html', text: 'Index' }]);
     t.end();
   }
 );
@@ -67,7 +67,7 @@ test(
       ]
     };
     const optionObj = makeBreadcrumbOrigin('a.md', opt);
-    t.deepEqual(optionObj.breadcrumbOrigin, [{ 'index.md': 'Home' }, { 'a.md': 'Title A' }]);
+    t.deepEqual(optionObj.breadcrumbOrigin, [{ path: 'index.html', text: 'Home' }, { path: 'a.html', text: 'Title A' }]);
     t.end();
   }
 );
@@ -88,7 +88,7 @@ test(
       ]
     };
     const optionObj = makeBreadcrumbOrigin('dir1/', opt);
-    t.deepEqual(optionObj.breadcrumbOrigin, [{ 'index.md': 'Home' }, { 'dir1/': 'dir1' }]);
+    t.deepEqual(optionObj.breadcrumbOrigin, [{ path: 'index.html', text: 'Home' }, { path: 'dir1/', text: 'dir1' }]);
     t.end();
   }
 );
@@ -110,10 +110,10 @@ test(
     };
     const optionObj = makeBreadcrumbOrigin('dir1/dir2/b.md', opt);
     t.deepEqual(optionObj.breadcrumbOrigin, [
-      { 'index.md': 'Home' },
-      { 'dir1/': 'dir1' },
-      { 'dir1/dir2/': 'dir2' },
-      { 'dir1/dir2/b.md': 'Title B' }
+      { path: 'index.html', text: 'Home' },
+      { path: 'dir1/', text: 'dir1' },
+      { path: 'dir1/dir2/', text: 'dir2' },
+      { path: 'dir1/dir2/b.html', text: 'Title B' }
     ]);
     t.end();
   }
@@ -136,9 +136,9 @@ test(
     };
     const optionObj = makeBreadcrumbOrigin('dir1/dir2/index.md', opt);
     t.deepEqual(optionObj.breadcrumbOrigin, [
-      { 'index.md': 'Home' },
-      { 'dir1/': 'dir1' },
-      { 'dir1/dir2/index.md': 'Sub Index' }
+      { path: 'index.html', text: 'Home' },
+      { path: 'dir1/', text: 'dir1' },
+      { path: 'dir1/dir2/index.html', text: 'Sub Index' }
     ]);
     t.end();
   }
