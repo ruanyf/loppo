@@ -8,6 +8,10 @@ function transform(chapterObj) {
     key = key.substr(0, key.length - 3) + '.html';
   }
 
+  if (key.substr(-1) === '/') {
+    key += 'index.html';
+  }
+
   return {
     path: key,
     text: value

@@ -88,7 +88,7 @@ test(
       ]
     };
     const optionObj = makeBreadcrumbOrigin('dir1/', opt);
-    t.deepEqual(optionObj.breadcrumbOrigin, [{ path: 'index.html', text: 'Home' }, { path: 'dir1/', text: 'dir1' }]);
+    t.deepEqual(optionObj.breadcrumbOrigin, [{ path: 'index.html', text: 'Home' }, { path: 'dir1/index.html', text: 'dir1' }]);
     t.end();
   }
 );
@@ -111,8 +111,8 @@ test(
     const optionObj = makeBreadcrumbOrigin('dir1/dir2/b.md', opt);
     t.deepEqual(optionObj.breadcrumbOrigin, [
       { path: 'index.html', text: 'Home' },
-      { path: 'dir1/', text: 'dir1' },
-      { path: 'dir1/dir2/', text: 'dir2' },
+      { path: 'dir1/index.html', text: 'dir1' },
+      { path: 'dir1/dir2/index.html', text: 'dir2' },
       { path: 'dir1/dir2/b.html', text: 'Title B' }
     ]);
     t.end();
@@ -137,7 +137,7 @@ test(
     const optionObj = makeBreadcrumbOrigin('dir1/dir2/index.md', opt);
     t.deepEqual(optionObj.breadcrumbOrigin, [
       { path: 'index.html', text: 'Home' },
-      { path: 'dir1/', text: 'dir1' },
+      { path: 'dir1/index.html', text: 'dir1' },
       { path: 'dir1/dir2/index.html', text: 'Sub Index' }
     ]);
     t.end();

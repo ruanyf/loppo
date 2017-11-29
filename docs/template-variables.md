@@ -135,10 +135,10 @@ For example, if current page is `dir1/dir2/a.md`, `option.breadcrumb` is the fol
 
 ```javascript
 [
-  { 'index.md': 'Home' },
-  { 'dir1/': 'dir1' },
-  { 'dir1/dir2/': 'dir2' },
-  { 'dir1/dir2/a.md': 'Title A' }
+  { path: 'index.html', text: 'Home' },
+  { path: 'dir1/index.html', text: 'dir1' },
+  { path: 'dir1/dir2/index.html', text: 'dir2' },
+  { path: 'dir1/dir2/a.html', text: 'Title A' }
 ]
 ```
 
