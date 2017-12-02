@@ -11,6 +11,8 @@ The site variables are the same within the whole site.
 - site
 - dir
 - chapters
+- chaptersOrigin
+- chapterList
 - loppo_version
 
 ### option.site
@@ -35,6 +37,22 @@ The site variables are the same within the whole site.
 
 If the `doc` directory has nothing, `option.chapters` will be an empty array.
 
+### option.chaptersOrigin
+
+`option.chaptersOrigin` is just yet another form of `option.chapters` with different data structure.
+
+```javascript
+[
+  { origin: 'a.md', path: 'a.index', text: 'Title A'},
+  { origin: 'dir1/', path: 'dir1/index.html', text: 'dir1'},
+  { origin: 'dir2/b.md', path: 'dir2/b.html', text: 'Title B'}
+]
+```
+
+### option.chapterList
+
+`option.chapterList` is a HTML string converted from `option.chapters`.
+
 ### option.loppo_version
 
 `option.loppo_version` is the version number of Loppo.
@@ -47,14 +65,15 @@ Page variables are different for every document page.
 - page_title
 - content
 - previous_page_object
+- previousPageOrigin
 - previous_page
-- option.next_page_object
+- next_page_object
+- nextPageOrigin
 - next_page
 - relative_root_path
 - build_time
 - breadcrumbOrigin
 - breadcrumb
-- chapterList
 - toc
 
 ### option.current_path
@@ -95,6 +114,14 @@ For example, current page is `b.md` as following. Then `option.previous_page` is
 
 Attention, if current page is the first item of `chapters.yml` and is not `index.md`，`option.previous_page` will be `{ 'index.md': 'Home' }`.
 
+### option.previousPageOrigin
+
+`option.previousPageOrigin` is yet another form of `option.previous_page_object` with different data structure.
+
+```javascript
+{ origin: 'b.md', path: 'b.html', text: 'Title B' }
+```
+
 ### option.previous_page
 
 `option.previous_page` is a HTML string converted from `option.previous_page_object`.
@@ -111,6 +138,14 @@ For example, current page is `a.md` as following. Then `option.next_page_object`
 ```javascript
 - a.md: Title A
 - b.md: Title B
+```
+
+### option.nextPageOrigin
+
+`option.nextPageOrigin` is yet another form of `option.next_page_object` with different data structure.
+
+```javascript
+{ origin: 'b.md', path: 'b.html', text: 'Title B' }
 ```
 
 ### option.next_page
@@ -159,6 +194,3 @@ For example, if current page is `dir1/dir2/a.md`, `option.breadcrumb` is the fol
 
 `option.toc` is the table of content of current page.
 
-### option.chapterList
-
-`option.chapterList` is a HTML string converted from `option.chapters`.
