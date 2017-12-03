@@ -31,7 +31,7 @@ The site variables are the same within the whole site.
 [
   {'a.md': 'Title A'},
   {'dir1/': 'dir1'},
-  {'dir2/b.md': 'Title B'}
+  {'dir1/b.md': 'Title B'}
 ]
 ```
 
@@ -43,11 +43,20 @@ If the `doc` directory has nothing, `option.chapters` will be an empty array.
 
 ```javascript
 [
-  { origin: 'a.md', path: 'a.index', text: 'Title A'},
-  { origin: 'dir1/', path: 'dir1/index.html', text: 'dir1'},
-  { origin: 'dir2/b.md', path: 'dir2/b.html', text: 'Title B'}
+  { origin: 'a.md', path: 'a.html', text: 'Title A', nextLevelBegins: false, currentLevelEnds: false },
+  { origin: 'dir1/', path: 'dir1/index.html', text: 'dir1', nextLevelBegins: true, currentLevelEnds: false },
+  { origin: 'dir1/b.md', path: 'dir1/b.html', text: 'Title B', nextLevelBegins: false, currentLevelEnds: true, currentLevelEndNum: 2}
 ]
 ```
+
+Fields
+
+- origin: origin path of Markdown file
+- path: path of HTML file
+- text: title of Markdown file
+- nextLevelBegins: a Boolean value indicating a diretory begins
+- currentLevelEnds: a Boolean value indicating a directory ends
+- currentLevelEndNum: a Number value indicating how many directory levels ends here, only exists when `currentLevelEnds` is `true`
 
 ### option.chapterList
 
