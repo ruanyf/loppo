@@ -62,6 +62,7 @@ If the `doc` directory has nothing, `option.chapters` will be an empty array.
 Page variables are different for every document page.
 
 - current_path
+- isHomepage
 - page_title
 - content
 - previous_page_object
@@ -89,6 +90,10 @@ For the index page of document directory, `option.current_path` is `/`.
 - For regular `.md` file, `option.content` is its markdown content.
 - For the root directory (`docs` directory), `option.content` is the content of `README.md` under the project root directory (not `docs` directory)。If no `README.md`，`option.content` is an empty string.
 - For sub-directories, `option.content` is all `.md` files and sub-directories directly under it.
+
+### option.isHomepage
+
+`option.isHomepage` is a boolean value to indicate whether on not the current page is the homepage of the site.
 
 ### option.page_title
 
