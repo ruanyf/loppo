@@ -170,3 +170,50 @@ test(
     t.end();
   }
 );
+
+test(
+  test_title +
+  'nextLevelBegins / currentLevelEnds / currentLevelEndNumber No.6',
+  function (t) {
+    const chapters = [
+      { 'dir1/': 'xxx' },
+      { 'dir1/dir2/': 'xxx' },
+      { 'dir1/dir2/b.md': 'xxx' },
+      { 'dir1/dir2/c.md': 'xxx' },
+      { 'dir1/d.md': 'xxx' }
+    ];
+    const result = makeChaptersOrigin(chapters);
+    t.equal(result[3].nextLevelBegins, false);
+    t.equal(result[3].currentLevelEnds, true);
+    t.equal(result[3].currentLevelEndNum, 1);
+    t.equal(result[4].nextLevelBegins, false);
+    t.equal(result[4].currentLevelEnds, true);
+    t.equal(result[4].currentLevelEndNum, 1);
+    t.end();
+  }
+);
+
+test(
+  test_title +
+  'nextLevelBegins / currentLevelEnds / currentLevelEndNumber No.7',
+  function (t) {
+    const chapters = [
+      { 'dir1/': 'xxx' },
+      { 'dir1/dir2/': 'xxx' },
+      { 'dir1/dir2/b.md': 'xxx' },
+      { 'dir1/dir2/c.md': 'xxx' },
+      { 'dir1/d.md': 'xxx' },
+      { 'e.md': 'xxx' },
+    ];
+    const result = makeChaptersOrigin(chapters);
+    t.equal(result[3].nextLevelBegins, false);
+    t.equal(result[3].currentLevelEnds, true);
+    t.equal(result[3].currentLevelEndNum, 1);
+    t.equal(result[4].nextLevelBegins, false);
+    t.equal(result[4].currentLevelEnds, true);
+    t.equal(result[4].currentLevelEndNum, 1);
+    t.equal(result[5].nextLevelBegins, false);
+    t.equal(result[5].currentLevelEnds, false);
+    t.end();
+  }
+);

@@ -86,6 +86,14 @@ function makeChaptersOrigin(chapters) {
         arr[index - 1].currentLevelEnds = true;
         arr[index - 1].currentLevelEndNum = compare(item.path, arr[index - 1].path);
         openLevel = currentDir.split('/').length;
+        if (index === arr.length - 1) {
+          if (currentDir !== '.') {
+            item.currentLevelEnds = true;
+            item.currentLevelEndNum = openLevel;
+          } else {
+            item.currentLevelEnds = false;
+          }
+        }
       }
     }
     previousDir = currentDir;
