@@ -4,6 +4,7 @@ Loppo supports two git-style subcommands.
 
 - loppo server
 - loppo count
+- loppo chapter
 
 ## loppo server
 
@@ -43,3 +44,21 @@ $ loppo count --detail
 $ loppo count -f some.md
 ```
 
+## loppo chapter
+
+`loppo chapter` will re-create `chapters.yml` and add new Markdown files into it.
+
+Attention, the old `chapters.yml` will be deleted after running the command.
+
+```bash
+$ loppo chapter
+
+This command will delete your chapters.yml if existed.
+Are you sure to continue? （Y/N）
+```
+
+If you want to skip the confirmation, use `--force` option.
+
+```bash
+$ loppo chapter --force
+```
