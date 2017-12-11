@@ -49,6 +49,7 @@ const { argv } = require('yargs')
   })
   .command(require('./server'))
   .command(require('./count'))
+  .command(require('./chapter'))
   .help('help')
   .example('loppo --dir docs --output dist')
   .example('loppo server');
@@ -65,7 +66,8 @@ if (argv.debug) {
 
 if (
   argv._.indexOf('server') === -1 &&
-  argv._.indexOf('count') === -1
+  argv._.indexOf('count') === -1 &&
+  argv._.indexOf('chapter') === -1
 ) {
   require('../lib')(argv);
 }
