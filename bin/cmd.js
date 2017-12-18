@@ -22,6 +22,11 @@ const { argv } = require('yargs')
     describe: 'site name',
     type: 'string'
   })
+  .option('id', {
+    default: require('../utils/siteId')(),
+    describe: 'site ID',
+    type: 'string'
+  })
   .option('direction', {
     default: 'ltr',
     describe: 'document character direction',
