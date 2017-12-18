@@ -9,6 +9,7 @@ They could be divided into two categories: site variables and page variables.
 The site variables are the same within the whole site.
 
 - site
+- id
 - dir
 - chapters
 - chaptersOrigin
@@ -17,7 +18,11 @@ The site variables are the same within the whole site.
 
 ### option.site
 
-`option.site` is the site name.
+`option.site` is the site name (default is `Documents`).
+
+### option.id
+
+`option.id` is the site id (default is the dir name of the project).
 
 ### option.dir
 

@@ -34,6 +34,10 @@ $ loppo --site "My Documents"
 $ loppo --theme oceandeep
 ```
 
+##  --id
+
+`--id` sets a site's ID (default is the dir name of the project).
+
 ## --direction
 
 `--direction` sets the document's character direction. `ltr` is the default. It also could be setted as `rtl`.
