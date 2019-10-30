@@ -9,7 +9,6 @@
     "test": "tape test/*.test.js test/**/*.test.js | tap-spec",
     "commit": "git cz",
     "changelog": "conventional-changelog -p angular -i CHANGELOG.md -s -r 1",
-    "precommit": "npm run lint",
     "commitmsg": "npm run lint:msg"
   },
   "bin": {
