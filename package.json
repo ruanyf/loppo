@@ -5,11 +5,9 @@
   "main": "index.js",
   "scripts": {
     "lint": "eslint './**/*.@(js|jsx)'",
-    "lint:msg": "validate-commit-msg",
     "test": "tape test/*.test.js test/**/*.test.js | tap-spec",
     "commit": "git cz",
-    "changelog": "conventional-changelog -p angular -i CHANGELOG.md -s -r 1",
-    "commitmsg": "npm run lint:msg"
+    "changelog": "conventional-changelog -p angular -i CHANGELOG.md -s -r 1"
   },
   "bin": {
     "loppo": "./bin/cmd.js"
@@ -45,6 +43,8 @@
     "yargs": "15.x"
   },
   "devDependencies": {
+    "@commitlint/cli": "^8.3.5",
+    "@commitlint/config-conventional": "^8.3.4",
     "commitizen": "4.x",
     "conventional-changelog-cli": "^2.0.31",
     "cz-conventional-changelog": "3.x",
@@ -56,8 +56,13 @@
     "ghooks": "^2.0.4",
     "husky": "4.x",
     "tap-spec": "^5.0.0",
-    "tape": "^4.13.2",
-    "validate-commit-msg": "^2.6.1"
+    "tape": "^4.13.2"
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "npm test",
+      "commit-msg": "commitlint -E HUSKY_GIT_PARAMS"
+    }
   },
   "config": {
     "validate-commit-msg": {
