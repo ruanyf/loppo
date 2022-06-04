@@ -26,7 +26,7 @@
   "dependencies": {
     "connect": "^3.7.0",
     "debug": "^4.3.2",
-    "fs-extra": "^9.1.0",
+    "fs-extra": "^10.0.0",
     "html-minifier": "4.x",
     "html-to-text": "6.x",
     "js-yaml": "^3.14.1",
