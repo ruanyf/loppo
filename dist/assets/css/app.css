@@ -1,0 +1,417 @@
+/*
+ * general
+ */
+
+:root {
+  font-size: 16px;
+  font-family: "FZLanTingHei", "Helvetica Neue", "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", "Hiragino Kaku Gothic Pro", Meiryo, "Malgun Gothic", sans-serif;
+  box-sizing: border-box;
+}
+
+body {
+  font-size: 1.25rem;
+}
+
+code {
+  font-size: 1.25rem;
+  margin-left: 0.25rem;
+  margin-right: 0.25rem;
+}
+
+.link-disabled {
+  pointer-events: none;
+}
+
+.progress-indicator {
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 3px;
+  background-color: #ffdd57;
+}
+
+
+/*
+ *  navbar
+ */
+
+.navbar {
+  background-color: #3273dc;
+  color: #FFF;
+  position: fixed;
+  top: 0;
+  right: 0;
+  width: 100%;
+  height: 3.3125rem;
+  padding-bottom: 0;
+  margin-right: 0;
+  margin-top: 0;
+  margin-bottom:0;
+}
+
+.logo {
+  margin-top: 0.3rem;
+  margin-left: 1rem;
+}
+
+.logo a {
+  color: #FFF;
+}
+
+.logo a:hover {
+  color: rgba(255, 255, 255, 0.8);
+}
+
+.site-title {
+  text-align: center;
+}
+
+
+/*
+ * book-toc
+ */
+
+.book-toc {
+  position: fixed;
+  top: 3.3125rem;
+  right: 0;
+  opacity: 0.9;
+  transition: all 1s;
+  color: rgba(0, 0, 0, 0.4);
+  line-height: 2;
+  height: 75vh;
+  width: 20rem;
+  overflow: scroll;
+  z-index: 9;
+}
+
+.book-toc h3 {
+  margin-bottom: 1.5rem;
+}
+
+.book-toc a {
+  color: rgba(0, 0, 0, 0.7);
+}
+
+.book-toc a:hover {
+  color: rgba(0, 0, 0, 0.9);
+  text-decoration: underline;
+}
+
+.book-toc .chapter-item-current a {
+  color: #ff3860;
+  font-weight: 700;
+}
+
+.book-toc ul {
+  margin-top: 0;
+  margin-left: 0.5rem;
+  margin-right: 0.5rem;
+}
+
+.book-toc ul.chapter-area {
+  counter-reset: chapter;
+}
+
+.book-toc ul.chapter-area > li {
+  list-style-type: none;
+}
+
+.book-toc ul.chapter-area > li::before {
+  counter-increment: chapter;
+  content: counter(chapter) ". ";
+}
+
+.book-toc ul.chapter-level-1 {
+  counter-reset: article;
+}
+
+.book-toc ul.chapter-level-1 > li {
+  list-style-type: none;
+}
+
+.book-toc ul.chapter-level-1 > li::before {
+  counter-increment: article;
+  content: counter(chapter) "." counter(article) " ";
+}
+
+.book-toc .icon-expand {
+  width: 18px;
+  height: 18px;
+  content: url(expand.svg);
+}
+
+.book-toc .icon-collapse {
+  width: 18px;
+  height: 18px;
+  content: url(collapse.svg);
+}
+
+
+/*
+ * content
+ */
+
+.content {
+  background-color: #FFF;
+  color: #333;
+  margin-top: 3.3125rem;
+  padding-left: 1rem;
+  padding-right: 1rem;
+  line-height: 1.6;
+}
+
+.breadcrumb-area {
+  padding-top: 1rem;
+}
+
+h1.article-title {
+  margin-bottom: 3rem;
+}
+
+.sticky {
+  bottom: 0px;
+  position: fixed;
+  margin-left: 0;
+  margin-right: 0;
+  padding-left: 0;
+  padding-right: 0;
+  padding-bottom: 0px;
+  margin-bottom: 0px;
+}
+
+.article-bar {
+  margin-top: 3rem;
+  padding-top: 1rem;
+  margin-left: -10px;
+  margin-right: -10px;
+  border-top: 1px solid #bdc3c7;
+  position: -webkit-sticky;
+  position: sticky;
+  bottom: 0;
+  background: white;
+}
+
+.article-bar .icon-next {
+  content: url(next.svg);
+}
+
+.article-bar .icon-previous {
+  content: url(previous.svg);
+}
+
+.article-bar .icon-up {
+  content: url(up.svg);
+}
+
+.article-bar .icon-size {
+  content: url(size.svg);
+}
+
+.article-bar .icon-toc {
+  content: url(toc.svg);
+}
+
+.article-bar .icon-previous-disabled {
+  content: url(previous-disabled.svg);
+}
+
+.article-bar .icon-next-disabled {
+  content: url(next-disabled.svg);
+}
+
+.article-bar .level-item .link-content {
+  display: none;
+}
+
+
+/*
+ * article
+ */
+
+.article {
+  counter-reset: firstLevelTitle;
+}
+
+.article > h2::before {
+  counter-increment: firstLevelTitle;
+  content: counter(firstLevelTitle) '. ';
+}
+
+.article > h2:only-of-type::before {
+  content: '';
+}
+
+.article > h2 {
+  counter-reset: secondLevelTitle;
+}
+
+.article > h3::before {
+  counter-increment: secondLevelTitle;
+  content: counter(firstLevelTitle) '.' counter(secondLevelTitle) ' ';
+}
+
+.article .first-level-collapse {
+  display: none;
+}
+
+/*
+ * article-toc
+ */
+
+.article-toc {
+  border: 1px solid #aaa;
+  background-color: #f9f9f9;
+  display: table;
+  padding: 1rem;
+}
+
+.article-toc ul {
+  margin-left: 0.5rem;
+  margin-right: 0.5rem;
+}
+
+.article-toc > ul {
+  counter-reset: articleTOCFirstLevel;
+}
+
+.article-toc > ul > li {
+  list-style-type: none;
+  counter-reset: articleTOCSecondLevel;
+}
+
+.article-toc > ul > li::before {
+  counter-increment: articleTOCFirstLevel;
+  content: counter(articleTOCFirstLevel) '. ';
+}
+
+.article-toc > ul > li > ul > li {
+  list-style-type: none;
+}
+
+.article-toc > ul > li > ul > li::before {
+  counter-increment: articleTOCSecondLevel;
+  content: counter(articleTOCFirstLevel) '.' counter(articleTOCSecondLevel) ' ';
+}
+
+
+/*
+ * foot
+ */
+
+.foot {
+  background-color: #FFF;
+  border-top: 1px solid #bdc3c7;
+  color: #b86bff;
+  font-size: 0.9rem;
+}
+
+.columns.foot {
+  margin-bottom: 0;
+}
+
+.build-by {
+  margin-left: 1rem;
+}
+
+
+/*
+ * highlight
+ */
+
+.hljs {
+  margin-bottom: 1rem;
+  border-radius: 0.5rem;
+  overflow: auto;
+}
+
+.hljs code {
+  background: #23241f;
+  color: #f8f8f2;
+  direction: ltr;
+}
+
+/*
+
+Monokai Sublime style. Derived from Monokai by noformnocontent http://nn.mit-license.org/
+
+*/
+
+.hljs {
+  display: block;
+  overflow-x: auto;
+  padding: 0.5em;
+  background: #23241f;
+}
+
+.hljs,
+.hljs-tag,
+.hljs-subst {
+  color: #f8f8f2;
+}
+
+.hljs-strong,
+.hljs-emphasis {
+  color: #a8a8a2;
+}
+
+.hljs-bullet,
+.hljs-quote,
+.hljs-number,
+.hljs-regexp,
+.hljs-literal,
+.hljs-link {
+  color: #ae81ff;
+}
+
+.hljs-code,
+.hljs-title,
+.hljs-section,
+.hljs-selector-class {
+  color: #a6e22e;
+}
+
+.hljs-strong {
+  font-weight: bold;
+}
+
+.hljs-emphasis {
+  font-style: italic;
+}
+
+.hljs-keyword,
+.hljs-selector-tag,
+.hljs-name,
+.hljs-attr {
+  color: #f92672;
+}
+
+.hljs-symbol,
+.hljs-attribute {
+  color: #66d9ef;
+}
+
+.hljs-params,
+.hljs-class .hljs-title {
+  color: #f8f8f2;
+}
+
+.hljs-string,
+.hljs-type,
+.hljs-built_in,
+.hljs-builtin-name,
+.hljs-selector-id,
+.hljs-selector-attr,
+.hljs-selector-pseudo,
+.hljs-addition,
+.hljs-variable,
+.hljs-template-variable {
+  color: #e6db74;
+}
+
+.hljs-comment,
+.hljs-deletion,
+.hljs-meta {
+  color: #75715e;
+}
+

@@ -115,7 +115,7 @@ test(
     };
     const optionObj = markdownRender('dir1/a.md', opt);
     t.equal(optionObj.toc, '');
-    t.equal(optionObj.content, '<pre class="hljs"><code><span class="hljs-built_in">console</span>.log(<span class="hljs-string">&quot;hello world&quot;</span>);\n</code></pre>\n');
+    t.equal(optionObj.content, '<pre class="hljs"><code><span class="hljs-variable language_">console</span>.<span class="hljs-title function_">log</span>(<span class="hljs-string">&quot;hello world&quot;</span>);\n</code></pre>\n');
     t.end();
   }
 );

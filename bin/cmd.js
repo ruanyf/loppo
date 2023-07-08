@@ -42,11 +42,6 @@ const { argv } = require('yargs')
     describe: 'debug mode',
     type: 'boolean'
   })
-  .option('version', {
-    alias: 'v',
-    describe: 'version information',
-    type: 'boolean'
-  })
   .option('help', {
     alias: 'h',
     describe: 'help information',
@@ -56,14 +51,9 @@ const { argv } = require('yargs')
   .command(require('./count'))
   .command(require('./chapter'))
   .help('help')
+  .version()
   .example('loppo --dir docs --output dist')
   .example('loppo server');
-
-if (argv.version) {
-  const pkg = require(path.join(__dirname, '../package.json'));
-  console.log(pkg.version);
-  process.exit(0);
-}
 
 if (argv.debug) {
   process.env.DEBUG = '*';
