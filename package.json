@@ -43,10 +43,10 @@
     "yargs": "17.x"
   },
   "devDependencies": {
-    "@commitlint/cli": "17.x",
-    "@commitlint/config-conventional": "17.x",
+    "@commitlint/cli": "18.x",
+    "@commitlint/config-conventional": "18.x",
     "commitizen": "^4.2.4",
-    "conventional-changelog-cli": "3.x",
+    "conventional-changelog-cli": "4.x",
     "cz-conventional-changelog": "3.x",
     "eslint": "8.x",
     "eslint-config-airbnb": "19.x",
